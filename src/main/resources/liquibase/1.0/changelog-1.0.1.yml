@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create users table
+      author: Ulvi
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                name: id
+                type: bigint
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+              - column:
+                name: email
+                type: varchar(128)
+                constraints:
+                  nullable: false
+              - column:
+                name: password
+                type: varchar(128)
+                constraints:
+                  nullable: false
+              - column:
+                name: username
+                type: varchar(64)
+                constraints:
+                  unique: true
+                  nullable: false
+              - column:
+                name: status
+                type: varchar(10)
+                constraints:
+                  default: 'ACTIVE'
+                  nullable: false
+
